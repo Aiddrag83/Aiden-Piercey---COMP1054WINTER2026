@@ -9,7 +9,7 @@ h1 {
     margin-top: 0;
     break-before: column;
     text-align: left;
-    column-span: all;
+    column-span: left;
 }
 
 h3 {
