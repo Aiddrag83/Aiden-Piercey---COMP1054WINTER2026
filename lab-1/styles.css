@@ -1,0 +1,48 @@
+
+h2 {
+    break-before: column;
+    text-align: center;
+    column-span: all;
+    text-transform: uppercase;
+}
+h1 {
+    margin-top: 0;
+    break-before: column;
+    text-align: left;
+    column-span: all;
+    
+}
+h3 {
+    break-before: column;
+    text-align: center;
+    column-span: all;
+}
+h6 {
+    text-align: right;
+   
+}
+/* h4 is the title of each section */
+h4 {
+    break-after: column;
+    text-align: left;
+    column-span: center;
+    text-transform: bold;
+    
+}
+h5 {
+    break-before: column;
+    text-align: right;
+    column-span: right;
+}
+body {
+  column-count: 3;
+  background-color: #fff;
+  line-height: 1.4;
+  margin: 10;
+  padding: 10px;
+}
+
+p {
+    text-align: justify;
+    column-gap: normal;
+}
