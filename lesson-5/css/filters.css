@@ -3,32 +3,42 @@ body {
     margin: 0 auto;
 }
 main section:nth-child(1) img:hover {
+    filter: blur(5px);
     /* STEP 1: blur() */
 }
 main section:nth-child(2) img:hover {
+    filter: brightness(150%);
     /* STEP 2: brightness() */
 }
 main section:nth-child(3) img:hover {
+    filter: contrast(200%);
     /* STEP 3: contrast() */
 }
 main section:nth-child(4) img:hover {
+    filter: drop-shadow(16px 16px 20px purple);
     /* STEP 4: drop-shadow() */
 }
 main section:nth-child(5) img:hover {
+    filter: grayscale(100%);
     /* STEP 5: grayscale() */
 }
 main section:nth-child(6) img:hover {
+    filter: hue-rotate(90deg);
     /* STEP 6: hue-rotate() */
 }
 main section:nth-child(7) img:hover {
+    filter: invert(100%);
     /* STEP 7: invert() */
 }
 main section:nth-child(8) img:hover {
+    filter: opacity(50%);
     /* STEP 8: opacity() */
 }
 main section:nth-child(9) img:hover {
+    filter: saturate(200%);
     /* STEP 9: saturate() */
 }
 main section:nth-child(10) img:hover {
+    filter: sepia(100%);
     /* STEP 10: sepia() */
 }

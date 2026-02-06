@@ -13,32 +13,32 @@ to match as closely as you can with the colors
 on the FIRST paint swatch card provided.
 -------------------------------------------------- */
 	#hex div:nth-of-type(1) {
-		background-color: #ff0000;
+		background-color: #415639;
 	}
 	#hex div:nth-of-type(2) {
-		background-color: #ffa500;
+		background-color: #97a880;
 	}
 	#hex div:nth-of-type(3) {
-		background-color: #ffff00;
+		background-color: #658759;
 	}
 	#hex div:nth-of-type(4) {
-		background-color: #32cd32;
+		background-color: #728449;
 	}
 /* STEP 2: Set each color in rgba format
 to match as closely as you can with the colors
 on the SECOND paint swatch card provided.
 -------------------------------------------------- */
 	#rgba div:nth-of-type(1) {
-		background-color: rgb(255 0 0);
+		background-color: rgb(172, 187, 200);
 	}
 	#rgba div:nth-of-type(2) {
-		background-color: rgb(255 165 0);
+		background-color: rgb(223, 229, 255);
 	}
 	#rgba div:nth-of-type(3) {
-		background-color: rgb(255 255 0);
+		background-color: rgb(131, 144, 194);
 	}
 	#rgba div:nth-of-type(4) {
-		background-color: rgb(50 205 50);
+		background-color: rgb(82, 97, 173);
 	}
 	/* ...and so on... */
 
@@ -47,16 +47,16 @@ to match as closely as you can with the colors
 on the THIRD paint swatch card provided.
 -------------------------------------------------- */
 	#hsla div:nth-of-type(1) {
-		background-color: hsl(0 100% 50%);
+		background-color: hsl(67, 78%, 75%);
 	}
 	#hsla div:nth-of-type(2) {
-		background-color: hsl(39 100% 50%);
+		background-color: hsl(60, 95%, 64%);
 	}
 	#hsla div:nth-of-type(3) {
-		background-color: hsl(60 100% 50%);	
+		background-color: hsl(55, 83%, 55%);
 	}
 	#hsla div:nth-of-type(4) {
-		background-color: hsl(120 61% 50%)
+		background-color: hsl(52, 100%, 50%);
 	}
 	/* ...and so on... */
 
@@ -68,23 +68,32 @@ produce an exact rendition of the swatch colors on the FOURTH card provided.
 (https://developer.mozilla.org/en-US/docs/Web/CSS/filter).
 -------------------------------------------------- */
 	#keyword div:nth-of-type(1) {
-		background-color: red;
+		background-color:   darkseagreen;
+		filter: brightness(50%);
 	}
 	#keyword div:nth-of-type(2) {
-		background-color: orange;
+		background-color:   rgb(191, 222, 176);
+		filter: brightness(80%);
 	}
 	#keyword div:nth-of-type(3) {
-		background-color: yellow;
+		background-color:   rgb(124, 160, 103);
+		filter: brightness(80%);
+		filter: sepia(0.72)
 	}
 	#keyword div:nth-of-type(4) {
-		background-color: limegreen;
+		background-color:   rgb(112, 132, 73);
+		filter: brightness(70%);
+		
 	}
+	
 	/* ...and so on... */
 
 	/* STEP 5: Describe one or more things that you can do to ensure that the colour rendering on your screen is exactly the same (or as close as possible) to the colours on your paint chip cards. If possible, attempt to do one or more of these things and describe what you did and what you found out. Maybe a screenshot, too if it might help. */
 
+	/*Putting the colour sample directly to the screen helped me see if the colours were close to the paint chip colour. This really helped for the RGBA and HSLA sections since I could just use the sliders to get the colour as close as possible. /*
 
-	/*What I did to make sure I had the correct colours, was click onto the swatches where it showed the hex code for each colour. Using this I was able to match the colours by copying the code into the links to give the exact colours in rgba, hsla and keyword.*/
+
+	
 </style>
 </head>
 
@@ -96,61 +105,61 @@ produce an exact rendition of the swatch colors on the FOURTH card provided.
 		<section id="hex">
 			<h2>Hexadecimal</h2>
 			<div>
-				<h3>#ff000</h3>
+				<h3>Patina Bronze</h3>
 			</div>
 			<div>
-				<h3>#ffa500</h3>
+				<h3>Sage Whisper</h3>
 			</div>
 			<div>
-				<h3>#ffff00</h3>
+				<h3>Dried Thyme</h3>
 			</div>
 			<div>
-				<h3>#32cd32</h3>
+				<h3>Copper Green</h3>
 			</div>
 		</section>
 		<section id="rgba">
 			<h2>RGB(A)</h2>
 			<div>
-				<h3>(255 0 0)</h3>
+				<h3>Cornflower Sky</h3>
 			</div>
 			<div>
-				<h3>(255 165 0)</h3>
+				<h3>Bella Blue</h3>
 			</div>
 			<div>
-				<h3>(255 255 0)</h3>
+				<h3>Nearly Twilight</h3>
 			</div>
 			<div>
-				<h3>(50 205 50)</h3>
+				<h3>Summer Dusk</h3>
 			</div>
 		</section>
 		<section id="hsla">
 			<h2>HSL(A)</h2>
 			<div>
-				<h3>(0 100% 50%)</h3>
+				<h3>Lemon Parfait</h3>
 			</div>
 			<div>
-				<h3>(39 100% 50%)</h3>
+				<h3>Lemon Sorbet</h3>
 			</div>
 			<div>
-				<h3>(60 100% 50%)</h3>
+				<h3>Sunshine</h3>
 			</div>
 			<div>
-				<h3>(120 61% 50%)</h3>
+				<h3>Canary</h3>
 			</div>
 		</section>
 		<section id="keyword">
 			<h2>Keyword / CSS Filter</h2>
 			<div>
-				<h3>Red</h3>
+				<h3>Patina Bronze</h3>
 			</div>
 			<div>
-				<h3>Orange</h3>
+				<h3>Sage Whisper</h3>
 			</div>
 			<div>
-				<h3>Yellow</h3>
+				<h3>Dried Thyme</h3>
 			</div>
 			<div>
-				<h3>Lime Green</h3>
+				<h3>Copper Green</h3>
 			</div>
 		</section>
 	</main>
