@@ -35,7 +35,6 @@ header h1 {
     position: relative;
 }
 
-/* Sketchy underline */
 header h1::after {
     content: "";
     display: block;
@@ -49,41 +48,6 @@ header h1::after {
 header p {
     font-size: 0.9rem;
     opacity: 0.75;
-}
-
-/* ==================================================
-   ALBUM GALLERY ABOVE MAIN CONTENT
-================================================== */
-.album-gallery {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 2rem 0;
-}
-
-.album-gallery figure {
-    margin: 0;
-    flex: 1 1 200px;
-    max-width: 220px;
-}
-
-.album-gallery img {
-    max-width: 100%;
-    border-radius: 4px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
-}
-
-.album-gallery img:hover {
-    transform: scale(1.05) rotate(-1deg);
-}
-
-.album-gallery figcaption {
-    text-align: center;
-    font-size: 0.75rem;
-    opacity: 0.7;
-    margin-top: 0.5rem;
 }
 
 /* ==================================================
@@ -116,7 +80,6 @@ article h2 {
     position: relative;
 }
 
-/* Sketchy underline */
 article h2::after,
 aside h2::after {
     content: "";
@@ -143,7 +106,34 @@ aside section {
 }
 
 /* ==================================================
-   LYRICS STYLING
+   SINGLE ARTWORK IN ASIDE
+================================================== */
+.single-artwork figure {
+    margin: 0 0 1rem 1rem; /* move to the right slightly */
+    position: relative;
+}
+
+.single-artwork img {
+    max-width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.single-artwork img:hover {
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 0 16px 35px rgba(0,0,0,0.45);
+}
+
+.single-artwork figcaption {
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    opacity: 0.7;
+}
+
+/* ==================================================
+   LYRICS
 ================================================== */
 aside blockquote {
     margin: 0;
@@ -156,7 +146,6 @@ aside blockquote p {
     margin-bottom: 0.75rem;
 }
 
-/* Graffiti-style emphasis */
 aside blockquote p strong {
     font-family: 'Permanent Marker', cursive;
     letter-spacing: 0.05em;
@@ -176,7 +165,7 @@ footer {
 }
 
 /* ==================================================
-   RESPONSIVE (STACK ON MOBILE)
+   RESPONSIVE
 ================================================== */
 @media (max-width: 800px) {
     main {
@@ -188,8 +177,8 @@ footer {
         border-top: 4px solid #8b3f2f;
     }
 
-    .album-gallery {
-        flex-direction: column;
-        align-items: center;
+    .single-artwork figure {
+        margin-left: 0;
+        margin-bottom: 1rem;
     }
 }
