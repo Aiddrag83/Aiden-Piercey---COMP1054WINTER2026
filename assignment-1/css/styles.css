@@ -13,20 +13,11 @@ body {
     padding: 0;
     font-family: 'Source Serif 4', serif;
     line-height: 1.6;
-    background:
-        linear-gradient(
-            0deg,
-            rgba(245, 240, 230, 0.9),
-            rgba(245, 240, 230, 0.9)
-        ),
-        repeating-linear-gradient(
-            45deg,
-            rgba(0, 0, 0, 0.02),
-            rgba(0, 0, 0, 0.02) 2px,
-            transparent 2px,
-            transparent 6px
-        );
     color: #2b1e1a;
+    background:
+        linear-gradient(0deg, rgba(245,240,230,0.95), rgba(245,240,230,0.95)),
+        repeating-linear-gradient(45deg, rgba(0,0,0,0.02), rgba(0,0,0,0.02) 1px, transparent 1px, transparent 6px),
+        repeating-linear-gradient(0deg, rgba(200,200,180,0.02), rgba(200,200,180,0.02) 2px, transparent 2px, transparent 8px);
 }
 
 /* ==================================================
@@ -52,7 +43,13 @@ header h1::after {
     display: block;
     width: 120px;
     height: 6px;
-    background: #8b3f2f;
+    background: repeating-linear-gradient(
+        135deg,
+        #8b3f2f,
+        #8b3f2f 2px,
+        transparent 2px,
+        transparent 4px
+    );
     margin: 0.5rem auto 0;
     transform: rotate(-1.5deg);
 }
@@ -63,7 +60,44 @@ header p {
 }
 
 /* ==================================================
-   MAIN GRID LAYOUT (IMPORTANT)
+   ALBUM GALLERY ABOVE CONTENT
+================================================== */
+
+.album-gallery {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.album-gallery figure {
+    margin: 0;
+    flex: 1 1 200px;
+    max-width: 220px;
+}
+
+.album-gallery img {
+    max-width: 100%;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.album-gallery img:hover {
+    transform: scale(1.05) rotate(-1deg);
+}
+
+.album-gallery figcaption {
+    text-align: center;
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-top: 0.5rem;
+}
+
+/* ==================================================
+   MAIN GRID LAYOUT
 ================================================== */
 
 main {
@@ -71,8 +105,6 @@ main {
     margin: 0 auto;
     padding: 2rem;
     display: grid;
-
-    /* THIS is what forces the right column */
     grid-template-columns: 2.3fr 1fr;
     gap: 3rem;
 }
@@ -96,13 +128,19 @@ article h2 {
     position: relative;
 }
 
-/* Sketch underline */
+/* Sketchy underline */
 article h2::after {
     content: "";
     display: block;
-    width: 60px;
-    height: 4px;
-    background: #8b3f2f;
+    width: 70px;
+    height: 5px;
+    background: repeating-linear-gradient(
+        135deg,
+        #8b3f2f,
+        #8b3f2f 2px,
+        transparent 2px,
+        transparent 4px
+    );
     margin-top: 0.3rem;
     transform: rotate(-2deg);
 }
@@ -115,8 +153,6 @@ aside {
     background: rgba(255, 255, 255, 0.55);
     padding: 1.75rem;
     border-left: 4px solid #8b3f2f;
-
-    /* Keeps it visually separate */
     align-self: start;
 }
 
@@ -131,8 +167,25 @@ aside h2 {
     letter-spacing: 0.05em;
 }
 
+/* Sketchy underline for aside headings */
+aside h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: repeating-linear-gradient(
+        135deg,
+        #8b3f2f,
+        #8b3f2f 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    margin-top: 0.3rem;
+    transform: rotate(-2deg);
+}
+
 /* ==================================================
-   ALBUM ART IMAGES
+   ALBUM ART IMAGES INSIDE ASIDE (OPTIONAL)
 ================================================== */
 
 figure {
@@ -169,9 +222,11 @@ aside blockquote p {
 
 /* Graffiti-style emphasis */
 aside blockquote p strong {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Permanent Marker', cursive;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    color: #b93e34;
+    text-shadow: 2px 2px 0 #fff, 4px 4px 0 rgba(0,0,0,0.2);
 }
 
 /* ==================================================
@@ -197,5 +252,10 @@ footer {
     aside {
         border-left: none;
         border-top: 4px solid #8b3f2f;
+    }
+
+    .album-gallery {
+        flex-direction: column;
+        align-items: center;
     }
 }
