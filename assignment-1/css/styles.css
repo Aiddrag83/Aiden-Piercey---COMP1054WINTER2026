@@ -1,215 +1,140 @@
 /* ==================================================
-   RESET / NORMALIZATION
-   Source:
-   https://piccalil.li/blog/a-modern-css-reset/
+   RESET & BASE
 ================================================== */
+
 *,
 *::before,
 *::after {
     box-sizing: border-box;
+}
+
+body {
     margin: 0;
     padding: 0;
-}
-
-/* ==================================================
-   BODY / PAPER TEXTURE + ALBUM SKY
-================================================== */
-body {
-    font-family: "Source Serif 4", serif;
-    line-height: 1.65;
-    color: #1e1e1e;
-
+    font-family: 'Source Serif 4', serif;
+    line-height: 1.6;
     background:
-        /* subtle paper grain */
-        repeating-linear-gradient(
-            0deg,
-            rgba(255,255,255,0.03),
-            rgba(255,255,255,0.03) 1px,
-            transparent 1px,
-            transparent 3px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            rgba(0,0,0,0.02),
-            rgba(0,0,0,0.02) 1px,
-            transparent 1px,
-            transparent 4px
-        ),
-        /* sunset gradient inspired by Wall artwork */
         linear-gradient(
-            180deg,
-            #f6cfa5 0%,
-            #f2b6b6 35%,
-            #e8d9b5 100%
+            0deg,
+            rgba(245, 240, 230, 0.9),
+            rgba(245, 240, 230, 0.9)
+        ),
+        repeating-linear-gradient(
+            45deg,
+            rgba(0, 0, 0, 0.02),
+            rgba(0, 0, 0, 0.02) 2px,
+            transparent 2px,
+            transparent 6px
         );
+    color: #2b1e1a;
 }
 
 /* ==================================================
-   PAGE STRUCTURE (CSS GRID)
+   HEADER
 ================================================== */
-header,
-footer {
+
+header {
+    padding: 3rem 2rem 2rem;
     text-align: center;
-    padding: 2.5rem 1.5rem;
 }
 
-main {
-    display: grid;
-    grid-template-columns: 3fr 1.2fr;
-    gap: 2.5rem;
-
-    max-width: 72rem;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-/* ==================================================
-   HEADER / TITLE
-================================================== */
 header h1 {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 800;
-    font-size: clamp(3rem, 6vw, 4.5rem);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+    position: relative;
+}
 
-    transform: rotate(-1deg);
-
-    color: #ffffff;
-    text-shadow:
-        0 2px 0 rgba(0,0,0,0.15),
-        0 8px 25px rgba(0,0,0,0.2);
+/* Sketchy underline */
+header h1::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 6px;
+    background: #8b3f2f;
+    margin: 0.5rem auto 0;
+    transform: rotate(-1.5deg);
 }
 
 header p {
-    margin-top: 0.5rem;
-    font-style: italic;
-    color: #2f2f2f;
+    font-size: 0.9rem;
+    opacity: 0.75;
 }
 
 /* ==================================================
-   ARTICLE / STACKED PAPER EFFECT
+   MAIN GRID LAYOUT (IMPORTANT)
 ================================================== */
-article {
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 2.5rem;
 
-    position: relative;
-
-    box-shadow:
-        0 12px 30px rgba(0,0,0,0.15);
-}
-
-article::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background-color: rgba(255,255,255,0.6);
-    transform: translate(0.6rem, 0.6rem);
-
-    z-index: -1;
-}
-
-/* ==================================================
-   SECTIONS
-================================================== */
-section + section {
-    margin-top: 2.5rem;
-}
-
-/* ==================================================
-   HEADINGS WITH SKETCHY UNDERLINE
-================================================== */
-h2 {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600;
-    font-size: 1.6rem;
-    letter-spacing: 0.06em;
-
-    position: relative;
-    display: inline-block;
-
-    margin-bottom: 1.5rem;
-    color: #2f5d62;
-}
-
-h2::after {
-    content: "";
-    position: absolute;
-    left: -0.2rem;
-    bottom: -0.4rem;
-
-    width: 105%;
-    height: 0.6rem;
-
-    background:
-        repeating-linear-gradient(
-            -5deg,
-            rgba(200,107,74,0.7),
-            rgba(200,107,74,0.7) 4px,
-            rgba(200,107,74,0.4) 7px,
-            rgba(200,107,74,0.4) 10px
-        );
-
-    z-index: -1;
-    border-radius: 0.2rem;
-}
-
-/* ==================================================
-   BODY COPY
-================================================== */
-p {
-    max-width: 60ch;
-}
-
-/* ==================================================
-   LYRICS
-================================================== */
-blockquote {
-    margin-top: 1.5rem;
-    padding-left: 2rem;
-    border-left: 5px solid #c86b4a;
-}
-
-blockquote p {
-    margin-bottom: 1.2rem;
-    font-size: 1.05rem;
-}
-
-/* graffiti-style emphasis */
-blockquote p:nth-of-type(2n) {
-    font-family: "Montserrat", sans-serif;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-
-    color: #8b3f2f;
-    text-shadow:
-        1px 1px 0 rgba(0,0,0,0.15),
-        -1px -1px 0 rgba(255,255,255,0.3);
-}
-
-/* ==================================================
-   ASIDE
-================================================== */
-aside {
-    background-color: rgba(255, 255, 255, 0.9);
+main {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 2rem;
-    font-size: 0.95rem;
+    display: grid;
 
-    transform: translateY(1rem);
+    /* THIS is what forces the right column */
+    grid-template-columns: 2.3fr 1fr;
+    gap: 3rem;
+}
 
-    box-shadow:
-        0 10px 25px rgba(0,0,0,0.12);
+/* ==================================================
+   LEFT COLUMN (ARTICLE)
+================================================== */
+
+article {
+    padding-right: 1rem;
+}
+
+article section {
+    margin-bottom: 3rem;
+}
+
+article h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+/* Sketch underline */
+article h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #8b3f2f;
+    margin-top: 0.3rem;
+    transform: rotate(-2deg);
+}
+
+/* ==================================================
+   RIGHT COLUMN (ASIDE / ALBUM AESTHETIC)
+================================================== */
+
+aside {
+    background: rgba(255, 255, 255, 0.55);
+    padding: 1.75rem;
+    border-left: 4px solid #8b3f2f;
+
+    /* Keeps it visually separate */
+    align-self: start;
+}
+
+aside section {
+    margin-bottom: 2.5rem;
 }
 
 aside h2 {
-    color: #8b3f2f;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
 }
 
 /* ==================================================
    ALBUM ART IMAGES
 ================================================== */
+
 figure {
     margin: 1.5rem 0;
 }
@@ -217,45 +142,60 @@ figure {
 img {
     max-width: 100%;
     display: block;
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,0.2);
+    border-radius: 2px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
 figcaption {
     font-size: 0.75rem;
     margin-top: 0.5rem;
-    opacity: 0.75;
+    opacity: 0.7;
 }
 
 /* ==================================================
-   ASIDE LYRICS ADJUSTMENT
+   LYRICS STYLING
 ================================================== */
+
 aside blockquote {
-    border-left-color: #8b3f2f;
+    margin: 0;
+    padding-left: 1rem;
+    border-left: 4px solid #8b3f2f;
 }
 
 aside blockquote p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Graffiti-style emphasis */
+aside blockquote p strong {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 /* ==================================================
    FOOTER
 ================================================== */
+
 footer {
-    font-size: 0.8rem;
-    opacity: 0.75;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.75rem;
+    opacity: 0.6;
 }
 
 /* ==================================================
-   RESPONSIVE
+   RESPONSIVE (STACK ON MOBILE)
 ================================================== */
-@media (max-width: 52rem) {
+
+@media (max-width: 800px) {
     main {
         grid-template-columns: 1fr;
     }
 
     aside {
-        transform: none;
+        border-left: none;
+        border-top: 4px solid #8b3f2f;
     }
 }
