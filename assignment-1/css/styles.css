@@ -14,7 +14,7 @@ body {
     line-height: 1.6;
     color: #2b1e1a;
     background:
-        linear-gradient(0deg, rgba(245,240,230,0.95), rgba(245,240,230,0.95)),
+        linear-gradient(180deg, #f9d7b9, #e67b5b),
         repeating-linear-gradient(45deg, rgba(0,0,0,0.02), rgba(0,0,0,0.02) 1px, transparent 1px, transparent 6px),
         repeating-linear-gradient(0deg, rgba(200,200,180,0.02), rgba(200,200,180,0.02) 2px, transparent 2px, transparent 8px);
 }
@@ -51,37 +51,34 @@ header p {
 }
 
 /* ==================================================
-   MAIN GRID LAYOUT
+   MAIN GRID
 ================================================== */
 main {
-    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 2fr 2fr 1.8fr;
+    gap: 2rem;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 2rem;
-    display: grid;
-    grid-template-columns: 2.3fr 1fr;
-    gap: 3rem;
 }
 
 /* ==================================================
-   LEFT COLUMN (ARTICLE)
+   LEFT COLUMN
 ================================================== */
 article {
-    padding-right: 1rem;
-}
-
-article section {
-    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 article h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.4rem;
-    margin-bottom: 0.5rem;
     position: relative;
+    margin-bottom: 0.5rem;
 }
 
-article h2::after,
-aside h2::after {
+article h2::after {
     content: "";
     display: block;
     width: 70px;
@@ -92,61 +89,57 @@ aside h2::after {
 }
 
 /* ==================================================
-   RIGHT COLUMN (ASIDE)
+   MIDDLE COLUMN (Album Aesthetic + Album Cover)
 ================================================== */
-aside {
-    background: rgba(255, 255, 255, 0.55);
-    padding: 1.75rem;
-    border-left: 4px solid #8b3f2f;
-    align-self: start;
+.album-column .aesthetic-wrapper {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
 }
 
-aside section {
-    margin-bottom: 2.5rem;
+.album-column p {
+    flex: 1;
 }
 
-/* ==================================================
-   SINGLE ARTWORK IN ASIDE
-================================================== */
-.single-artwork figure {
-    margin: 0 0 1rem 1rem; /* move to the right slightly */
-    position: relative;
-}
-
-.single-artwork img {
-    max-width: 100%;
+.album-column .album-cover img {
+    max-width: 180px;
     border-radius: 4px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.35);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.single-artwork img:hover {
+.album-column .album-cover img:hover {
     transform: scale(1.05) rotate(-1deg);
     box-shadow: 0 16px 35px rgba(0,0,0,0.45);
 }
 
-.single-artwork figcaption {
+.album-column .album-cover figcaption {
     font-size: 0.75rem;
-    margin-top: 0.5rem;
-    text-align: center;
     opacity: 0.7;
+    text-align: center;
+    margin-top: 0.5rem;
 }
 
 /* ==================================================
-   LYRICS
+   RIGHT COLUMN (Lyrics + Single Artwork)
 ================================================== */
-aside blockquote {
-    margin: 0;
+.lyrics-column .single-artwork img {
+    max-width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    margin-bottom: 1rem;
+}
+
+.lyrics-column blockquote {
     padding-left: 1rem;
     border-left: 4px solid #8b3f2f;
 }
 
-aside blockquote p {
-    font-size: 0.9rem;
+.lyrics-column blockquote p {
     margin-bottom: 0.75rem;
 }
 
-aside blockquote p strong {
+.lyrics-column blockquote p strong {
     font-family: 'Permanent Marker', cursive;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -167,18 +160,17 @@ footer {
 /* ==================================================
    RESPONSIVE
 ================================================== */
-@media (max-width: 800px) {
+@media (max-width: 1100px) {
     main {
         grid-template-columns: 1fr;
     }
 
-    aside {
-        border-left: none;
-        border-top: 4px solid #8b3f2f;
+    .album-column .aesthetic-wrapper {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .single-artwork figure {
-        margin-left: 0;
-        margin-bottom: 1rem;
+    .album-column .album-cover img {
+        max-width: 200px;
     }
 }
