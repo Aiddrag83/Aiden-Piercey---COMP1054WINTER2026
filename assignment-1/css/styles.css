@@ -1,7 +1,6 @@
 /* ==================================================
    RESET & BASE
 ================================================== */
-
 *,
 *::before,
 *::after {
@@ -23,7 +22,6 @@ body {
 /* ==================================================
    HEADER
 ================================================== */
-
 header {
     padding: 3rem 2rem 2rem;
     text-align: center;
@@ -43,13 +41,7 @@ header h1::after {
     display: block;
     width: 120px;
     height: 6px;
-    background: repeating-linear-gradient(
-        135deg,
-        #8b3f2f,
-        #8b3f2f 2px,
-        transparent 2px,
-        transparent 4px
-    );
+    background: repeating-linear-gradient(135deg, #8b3f2f, #8b3f2f 2px, transparent 2px, transparent 4px);
     margin: 0.5rem auto 0;
     transform: rotate(-1.5deg);
 }
@@ -60,9 +52,8 @@ header p {
 }
 
 /* ==================================================
-   ALBUM GALLERY ABOVE CONTENT
+   ALBUM GALLERY ABOVE MAIN CONTENT
 ================================================== */
-
 .album-gallery {
     display: flex;
     gap: 1rem;
@@ -79,7 +70,6 @@ header p {
 
 .album-gallery img {
     max-width: 100%;
-    display: block;
     border-radius: 4px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     transition: transform 0.3s ease;
@@ -99,7 +89,6 @@ header p {
 /* ==================================================
    MAIN GRID LAYOUT
 ================================================== */
-
 main {
     max-width: 1200px;
     margin: 0 auto;
@@ -112,7 +101,6 @@ main {
 /* ==================================================
    LEFT COLUMN (ARTICLE)
 ================================================== */
-
 article {
     padding-right: 1rem;
 }
@@ -129,26 +117,20 @@ article h2 {
 }
 
 /* Sketchy underline */
-article h2::after {
+article h2::after,
+aside h2::after {
     content: "";
     display: block;
     width: 70px;
     height: 5px;
-    background: repeating-linear-gradient(
-        135deg,
-        #8b3f2f,
-        #8b3f2f 2px,
-        transparent 2px,
-        transparent 4px
-    );
+    background: repeating-linear-gradient(135deg, #8b3f2f, #8b3f2f 2px, transparent 2px, transparent 4px);
     margin-top: 0.3rem;
     transform: rotate(-2deg);
 }
 
 /* ==================================================
-   RIGHT COLUMN (ASIDE / ALBUM AESTHETIC)
+   RIGHT COLUMN (ASIDE)
 ================================================== */
-
 aside {
     background: rgba(255, 255, 255, 0.55);
     padding: 1.75rem;
@@ -160,55 +142,9 @@ aside section {
     margin-bottom: 2.5rem;
 }
 
-aside h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    letter-spacing: 0.05em;
-}
-
-/* Sketchy underline for aside headings */
-aside h2::after {
-    content: "";
-    display: block;
-    width: 50px;
-    height: 4px;
-    background: repeating-linear-gradient(
-        135deg,
-        #8b3f2f,
-        #8b3f2f 2px,
-        transparent 2px,
-        transparent 4px
-    );
-    margin-top: 0.3rem;
-    transform: rotate(-2deg);
-}
-
-/* ==================================================
-   ALBUM ART IMAGES INSIDE ASIDE (OPTIONAL)
-================================================== */
-
-figure {
-    margin: 1.5rem 0;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-    border-radius: 2px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-}
-
-figcaption {
-    font-size: 0.75rem;
-    margin-top: 0.5rem;
-    opacity: 0.7;
-}
-
 /* ==================================================
    LYRICS STYLING
 ================================================== */
-
 aside blockquote {
     margin: 0;
     padding-left: 1rem;
@@ -232,7 +168,6 @@ aside blockquote p strong {
 /* ==================================================
    FOOTER
 ================================================== */
-
 footer {
     text-align: center;
     padding: 2rem;
@@ -243,7 +178,6 @@ footer {
 /* ==================================================
    RESPONSIVE (STACK ON MOBILE)
 ================================================== */
-
 @media (max-width: 800px) {
     main {
         grid-template-columns: 1fr;
