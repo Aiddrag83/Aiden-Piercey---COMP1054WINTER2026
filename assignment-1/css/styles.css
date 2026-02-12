@@ -1,6 +1,7 @@
 /* ==================================================
    RESET / NORMALIZATION
-   Source: https://piccalil.li/blog/a-modern-css-reset/
+   Source:
+   https://piccalil.li/blog/a-modern-css-reset/
 ================================================== */
 *,
 *::before,
@@ -11,15 +12,30 @@
 }
 
 /* ==================================================
-   ROOT & BODY
+   Body / Attempted paper texture 
 ================================================== */
 body {
     font-family: "Source Serif 4", serif;
     line-height: 1.65;
     color: #1e1e1e;
 
-    /* Album-inspired sky gradient */
     background:
+        /* subtle paper grain */
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.03),
+            rgba(255,255,255,0.03) 1px,
+            transparent 1px,
+            transparent 3px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(0,0,0,0.02),
+            rgba(0,0,0,0.02) 1px,
+            transparent 1px,
+            transparent 4px
+        ),
+        /* sunset gradient inspired by Wall artwork */
         linear-gradient(
             180deg,
             #f6cfa5 0%,
@@ -29,7 +45,7 @@ body {
 }
 
 /* ==================================================
-   PAGE STRUCTURE
+  Page (CSS GRID)
 ================================================== */
 header,
 footer {
@@ -48,17 +64,16 @@ main {
 }
 
 /* ==================================================
-   HEADER
+ Header
 ================================================== */
 header h1 {
     font-family: "Montserrat", sans-serif;
     font-weight: 800;
     font-size: clamp(3rem, 6vw, 4.5rem);
-    letter-spacing: 0.12em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
 
-    /* Slightly imperfect feel */
-    transform: translateX(0.1rem);
+    transform: rotate(-1deg);
 
     color: #ffffff;
     text-shadow:
@@ -73,42 +88,87 @@ header p {
 }
 
 /* ==================================================
-   ARTICLE CONTENT
+   Paper Effect
 ================================================== */
 article {
     background-color: rgba(255, 255, 255, 0.85);
     padding: 2.5rem;
 
-    /* Soft, layered feeling */
+    position: relative;
+
     box-shadow:
         0 12px 30px rgba(0,0,0,0.15);
 }
 
+article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-color: rgba(255,255,255,0.6);
+    transform: translate(0.6rem, 0.6rem);
+
+    z-index: -1;
+}
+
+/* ==================================================
+Section
+================================================== */
 section + section {
     margin-top: 2.5rem;
 }
 
+/* ==================================================
+Head
+================================================== */
 h2 {
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 1.6rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
 
-    margin-bottom: 0.75rem;
+    position: relative;
+    display: inline-block;
+
+    margin-bottom: 1.5rem;
     color: #2f5d62;
 }
 
+h2::after {
+    content: "";
+    position: absolute;
+    left: -0.2rem;
+    bottom: -0.4rem;
+
+    width: 105%;
+    height: 0.6rem;
+
+    background:
+        repeating-linear-gradient(
+            -5deg,
+            rgba(200,107,74,0.7),
+            rgba(200,107,74,0.7) 4px,
+            rgba(200,107,74,0.4) 7px,
+            rgba(200,107,74,0.4) 10px
+        );
+
+    z-index: -1;
+    border-radius: 0.2rem;
+}
+
+/* ==================================================
+Body
+================================================== */
 p {
     max-width: 60ch;
 }
 
 /* ==================================================
-   LYRICS STYLING
+Lyrics
 ================================================== */
 blockquote {
     margin-top: 1.5rem;
     padding-left: 2rem;
-
     border-left: 5px solid #c86b4a;
 }
 
@@ -117,16 +177,26 @@ blockquote p {
     font-size: 1.05rem;
 }
 
+/* graffiti-style emphasis */
+blockquote p:nth-of-type(2n) {
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: #8b3f2f;
+    text-shadow:
+        1px 1px 0 rgba(0,0,0,0.15),
+        -1px -1px 0 rgba(255,255,255,0.3);
+}
+
 /* ==================================================
-   ASIDE (ALBUM NOTES)
+Aside
 ================================================== */
 aside {
     background-color: rgba(255, 255, 255, 0.9);
     padding: 2rem;
-
     font-size: 0.95rem;
 
-    /* Offset card look */
     transform: translateY(1rem);
 
     box-shadow:
@@ -138,7 +208,7 @@ aside h2 {
 }
 
 /* ==================================================
-   FOOTER
+Footer
 ================================================== */
 footer {
     font-size: 0.8rem;
@@ -146,7 +216,7 @@ footer {
 }
 
 /* ==================================================
-   RESPONSIVE
+   Responsive
 ================================================== */
 @media (max-width: 52rem) {
     main {
