@@ -192,7 +192,8 @@ label[for="toggle-menu"] {
 	}
 	header nav li {
 			/* STEP 22: Set the LI elements to render horizontally instead of vertically */
-			
+			display: inline-block;
+
 	}
 	header a:hover {
 			color: var(--light-primary-color);
