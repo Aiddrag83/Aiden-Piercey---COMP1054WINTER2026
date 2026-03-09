@@ -1,0 +1,180 @@
+/* ------------------------------
+   Base Setup
+------------------------------ */
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.5;
+    background: #f4f4f4;
+    color: #222;
+}
+
+/* ------------------------------
+   Container
+------------------------------ */
+
+#container {
+    max-width: 1100px;
+    margin: auto;
+    background: white;
+    padding: 2rem;
+}
+
+/* ------------------------------
+   Header
+------------------------------ */
+
+header {
+    border-bottom: 3px solid #000;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+header p {
+    color: #777;
+    margin-top: .25rem;
+}
+
+/* ------------------------------
+   Main Layout
+------------------------------ */
+
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+/* Left magazine column */
+
+main section {
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    font-size: 1.6rem;
+    border-bottom: 2px solid #000;
+    padding-bottom: .3rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+/* ------------------------------
+   Article Lists
+------------------------------ */
+
+ol {
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 1rem;
+}
+
+li h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+li p {
+    margin: .2rem 0 0;
+    color: #444;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    color: #777;
+}
+
+/* ------------------------------
+   Aside Layout
+------------------------------ */
+
+aside {
+    border-left: 1px solid #ddd;
+    padding-left: 1rem;
+}
+
+aside h2 {
+    font-size: 1.4rem;
+    border-bottom: 2px solid #000;
+    padding-bottom: .3rem;
+}
+
+/* Figure image */
+
+figure {
+    margin: 0 0 2rem 0;
+}
+
+figure img {
+    width: 100%;
+    display: block;
+}
+
+figcaption {
+    font-size: .9rem;
+    color: #555;
+}
+
+/* ------------------------------
+   Cover list
+------------------------------ */
+
+aside ol {
+    padding-left: 1.3rem;
+}
+
+aside li {
+    margin-bottom: .5rem;
+}
+
+/* ------------------------------
+   Footer
+------------------------------ */
+
+footer {
+    margin-top: 3rem;
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+    text-align: center;
+    color: #666;
+}
+
+/* ------------------------------
+   Responsive Design
+------------------------------ */
+
+@media (max-width: 900px) {
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    aside {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+}
