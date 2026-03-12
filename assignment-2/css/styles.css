@@ -20,17 +20,19 @@ body {
 /* Container */
 
 #container {
-    max-width: 1100px;
+    max-width: 900px;
     margin: auto;
     background: white;
     padding: 2rem;
 }
 
-/* Header*/
+/* Header */
 
 header {
     border-bottom: 3px solid #000;
     margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 header h1 {
@@ -44,7 +46,7 @@ header p {
     margin-top: .25rem;
 }
 
-/* Main Layout*/
+/* Main Layout */
 
 main {
     display: grid;
@@ -66,7 +68,7 @@ section h2 {
     text-transform: uppercase;
 }
 
-/* Article Lists  */
+/* Article Lists */
 
 ol {
     padding-left: 1.5rem;
@@ -86,12 +88,37 @@ li p {
     color: #444;
 }
 
+/* Typography */
+
+p {
+    margin-top: 0;
+    margin-bottom: .75rem;
+    text-align: justify;
+}
+
 strong {
     font-weight: bold;
 }
 
 em {
     color: #777;
+}
+
+/* Figure image */
+
+figure {
+    margin: 0 0 2rem 0;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+figcaption {
+    font-size: .9rem;
+    color: #555;
 }
 
 /* Aside Layout */
@@ -105,22 +132,6 @@ aside h2 {
     font-size: 1.4rem;
     border-bottom: 2px solid #000;
     padding-bottom: .3rem;
-}
-
-/* Figure image */
-
-figure {
-    margin: 0 0 2rem 0;
-}
-
-figure img {
-    width: 100%;
-    display: block;
-}
-
-figcaption {
-    font-size: .9rem;
-    color: #555;
 }
 
 /* Cover list */
@@ -159,4 +170,5 @@ footer {
     header h1 {
         font-size: 2rem;
     }
+
 }
