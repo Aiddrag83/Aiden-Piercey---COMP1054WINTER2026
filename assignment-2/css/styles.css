@@ -17,6 +17,7 @@ body {
     color: #222;
 }
 
+
 /* Container */
 
 #container {
@@ -26,13 +27,12 @@ body {
     padding: 2rem;
 }
 
+
 /* Header */
 
 header {
     border-bottom: 3px solid #000;
     margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 header h1 {
@@ -46,6 +46,7 @@ header p {
     margin-top: .25rem;
 }
 
+
 /* Main Layout */
 
 main {
@@ -54,9 +55,11 @@ main {
     gap: 2rem;
 }
 
+
 /* Left magazine column */
 
 main section {
+    grid-column: 1;
     margin-bottom: 2rem;
 }
 
@@ -67,6 +70,7 @@ section h2 {
     margin-bottom: 1rem;
     text-transform: uppercase;
 }
+
 
 /* Article Lists */
 
@@ -88,6 +92,7 @@ li p {
     color: #444;
 }
 
+
 /* Typography */
 
 p {
@@ -103,6 +108,23 @@ strong {
 em {
     color: #777;
 }
+
+
+/* Aside Layout */
+
+main aside {
+    grid-column: 2;
+    border-left: 1px solid #ddd;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+}
+
+aside h2 {
+    font-size: 1.4rem;
+    border-bottom: 2px solid #000;
+    padding-bottom: .3rem;
+}
+
 
 /* Figure image */
 
@@ -121,18 +143,6 @@ figcaption {
     color: #555;
 }
 
-/* Aside Layout */
-
-aside {
-    border-left: 1px solid #ddd;
-    padding-left: 1rem;
-}
-
-aside h2 {
-    font-size: 1.4rem;
-    border-bottom: 2px solid #000;
-    padding-bottom: .3rem;
-}
 
 /* Cover list */
 
@@ -144,6 +154,7 @@ aside li {
     margin-bottom: .5rem;
 }
 
+
 /* Footer */
 
 footer {
@@ -154,6 +165,7 @@ footer {
     color: #666;
 }
 
+
 /* Responsive Design */
 
 @media (max-width: 900px) {
@@ -162,7 +174,7 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    aside {
+    main aside {
         border-left: none;
         padding-left: 0;
     }
