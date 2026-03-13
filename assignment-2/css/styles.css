@@ -1,6 +1,4 @@
-/* -----------------------------
-Base Page Setup
------------------------------ */
+/*Base Page Setup*/
 
 html {
     box-sizing: border-box;
@@ -20,9 +18,7 @@ body {
 }
 
 
-/* -----------------------------
-Container
------------------------------ */
+/*Container*/
 
 #container {
     max-width: 1100px;
@@ -32,9 +28,7 @@ Container
 }
 
 
-/* -----------------------------
-Header
------------------------------ */
+/*Header*/
 
 header {
     margin-bottom: 1rem;
@@ -49,9 +43,7 @@ header h1 {
 }
 
 
-/* -----------------------------
-Article Layout
------------------------------ */
+/*Article Layout*/
 
 article {
     column-count: 3;
@@ -59,9 +51,7 @@ article {
 }
 
 
-/* -----------------------------
-Image Styling
------------------------------ */
+/*Image Styling*/
 
 article img {
     width: 100%;
@@ -73,9 +63,7 @@ article img {
 }
 
 
-/* -----------------------------
-Headline
------------------------------ */
+/*Headline*/
 
 article h2:first-of-type {
     font-size: 3rem;
@@ -85,9 +73,7 @@ article h2:first-of-type {
 }
 
 
-/* -----------------------------
-Interview Questions
------------------------------ */
+/*Interview Questions */
 
 article h2:not(:first-of-type) {
     font-size: 1rem;
@@ -96,9 +82,7 @@ article h2:not(:first-of-type) {
 }
 
 
-/* -----------------------------
-Paragraph Styling
------------------------------ */
+/*Paragraph Styling*/
 
 p {
     margin-top: 0;
@@ -107,18 +91,14 @@ p {
 }
 
 
-/* -----------------------------
-Lead Paragraph
------------------------------ */
+/*Lead Paragraph*/
 
 article h2:first-of-type + p {
     font-size: 1.05rem;
 }
 
 
-/* -----------------------------
-Footer
------------------------------ */
+/*Footer*/
 
 footer {
     margin-top: 3rem;
@@ -133,9 +113,7 @@ footer p {
 }
 
 
-/* -----------------------------
-Responsive
------------------------------ */
+/*Responsive*/
 
 @media (max-width: 900px) {
 
