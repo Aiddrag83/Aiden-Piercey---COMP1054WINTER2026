@@ -1,0 +1,128 @@
+/*Base Page Setup*/
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.5;
+    background: #f2f2f2;
+    color: #222;
+}
+
+
+/*Container*/
+
+#container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+}
+
+
+/*Header*/
+
+header {
+    margin-bottom: 1rem;
+}
+
+header h1 {
+    font-size: 1rem;
+    color: #d5672f;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 1rem 0;
+}
+
+
+/*Article Layout*/
+
+article {
+    column-count: 3;
+    column-gap: 2rem;
+}
+
+
+/*Image Styling*/
+
+article img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 1.5rem;
+
+    column-span: all;
+}
+
+
+/*Headline*/
+
+article h2:first-of-type {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin: 1rem 0;
+    column-span: all;
+}
+
+
+/*Interview Questions */
+
+article h2:not(:first-of-type) {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 1.2rem;
+}
+
+
+/*Paragraph Styling*/
+
+p {
+    margin-top: 0;
+    margin-bottom: .9rem;
+    text-align: justify;
+}
+
+
+/*Lead Paragraph*/
+
+article h2:first-of-type + p {
+    font-size: 1.05rem;
+}
+
+
+/*Footer*/
+
+footer {
+    margin-top: 3rem;
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+}
+
+footer p {
+    text-align: left;
+    font-size: .8rem;
+    color: #444;
+}
+
+
+/*Responsive*/
+
+@media (max-width: 900px) {
+
+    article {
+        column-count: 1;
+    }
+
+    article h2:first-of-type {
+        font-size: 2rem;
+    }
+
+}

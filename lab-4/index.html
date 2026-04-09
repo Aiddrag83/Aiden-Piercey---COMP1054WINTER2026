@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NHL Atlantic Division Standings</title>
+
+  <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<!-- Initial commit: set up project structure with index.html and styles -->
+<body>
+
+<h1>Atlantic Division Standings (2025–26)</h1>
+
+<table id="standings">
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th data-sort-method="number">GP</th>
+      <th data-sort-method="number">W</th>
+      <th data-sort-method="number">L</th>
+      <th data-sort-method="number">OTL</th>
+      <th data-sort-method="number">PTS</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr><td>Buffalo Sabres</td><td>65</td><td>40</td><td>19</td><td>6</td><td>86</td></tr>
+    <tr><td>Tampa Bay Lightning</td><td>63</td><td>39</td><td>20</td><td>4</td><td>82</td></tr>
+    <tr><td>Montreal Canadiens</td><td>63</td><td>35</td><td>18</td><td>10</td><td>80</td></tr>
+    <tr><td>Detroit Red Wings</td><td>65</td><td>36</td><td>22</td><td>7</td><td>79</td></tr>
+    <tr><td>Boston Bruins</td><td>64</td><td>36</td><td>22</td><td>6</td><td>78</td></tr>
+    <tr><td>Ottawa Senators</td><td>63</td><td>32</td><td>22</td><td>9</td><td>73</td></tr>
+  </tbody>
+</table>
+
+<script>
+  new Tablesort(document.getElementById('standings'));
+</script>
+
+</body>
+</html>

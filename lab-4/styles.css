@@ -1,0 +1,32 @@
+/* Added CSS styling for table layout, colors, and readability */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0b1c2c;
+  color: white;
+  text-align: center;
+}
+
+table {
+  margin: 40px auto;
+  border-collapse: collapse;
+  width: 80%;
+  background-color: #12263a;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #1e3a5f;
+}
+
+th {
+  background-color: #1f4e79;
+  cursor: pointer;
+}
+
+tr:nth-child(even) {
+  background-color: #16324f;
+}
+
+tr:hover {
+  background-color: #1f4e79;
+}
