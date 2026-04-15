@@ -1,4 +1,7 @@
 /* scrapped all prior css and started from scratch */
+/* sent through CSS validator and fixed all errors, should be clean and well-structured now */
+/* importing fonts for steampunk aesthetic (Cinzel = headings, Playfair = body) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Playfair+Display:wght@400;700&display=swap');
 
 /* Root, going for a steampunk theme */
 
@@ -14,11 +17,9 @@
   --muted: #cbb890;
 
   --radius: 10px;
-
-  --font-main: Georgia, "Times New Roman", serif;
 }
 
-/*Base*/
+/* Base */
 
 *,
 *::before,
@@ -28,16 +29,18 @@
 
 body {
   margin: 0;
-  font-family: var(--font-main);
+  font-family: 'Playfair Display', serif;
   background: 
     radial-gradient(circle at top, rgba(127,223,255,0.08), transparent),
     linear-gradient(#1a120b, #0f0a05);
   color: var(--text);
   line-height: 1.6;
 }
+
 /* Typography */
 
 h1, h2, h3 {
+  font-family: 'Cinzel', serif;
   font-weight: bold;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -68,7 +71,7 @@ header {
   position: relative;
 }
 
-/* glowing energy core */
+/* glowing energy core (aether reactor look) */
 header::before {
   content: "";
   position: absolute;
@@ -78,7 +81,31 @@ header::before {
   filter: blur(40px);
   opacity: 0.3;
   z-index: -1;
+  animation: pulse 6s infinite alternate;
 }
+
+/* rotating gear animation */
+header::after {
+  content: "⚙";
+  position: absolute;
+  font-size: 120px;
+  color: rgba(201,164,76,0.15);
+  top: 10%;
+  right: 10%;
+  animation: spin 20s linear infinite;
+}
+
+/* gear spin animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* subtle pulsing glow */
+@keyframes pulse {
+  from { opacity: 0.2; }
+  to { opacity: 0.4; }
+}
+
 /* Brass Panels */
 
 section {
@@ -96,6 +123,7 @@ section {
 }
 
 /* Rivets */
+
 section::before,
 section::after {
   content: "";
@@ -115,6 +143,53 @@ section::before {
 section::after {
   bottom: 10px;
   right: 10px;
+}
+
+/* Steam effect (subtle mechanical atmosphere) */
+
+section::after {
+  animation: steam 6s infinite ease-in-out;
+}
+
+@keyframes steam {
+  0% { transform: translateY(0) scale(1); opacity: 0.3; }
+  50% { transform: translateY(-20px) scale(1.2); opacity: 0.1; }
+  100% { transform: translateY(0) scale(1); opacity: 0.3; }
+}
+
+/* Pipes connecting sections */
+
+section + section::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  width: 4px;
+  height: 40px;
+  background: linear-gradient(var(--brass), var(--brass-dark));
+  box-shadow: 0 0 5px black;
+}
+
+/* Aether energy lines across screen */
+
+main::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 50px,
+      rgba(127,223,255,0.08) 52px
+    );
+  animation: flow 10s linear infinite;
+}
+
+@keyframes flow {
+  from { background-position: 0 0; }
+  to { background-position: 200px 0; }
 }
 
 /* Layout Itself */
@@ -172,6 +247,7 @@ nav a:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 0 #5c4520;
 }
+
 /* Feature Grid */
 
 .features {
