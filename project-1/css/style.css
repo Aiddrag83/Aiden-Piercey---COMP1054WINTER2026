@@ -1,6 +1,8 @@
-/* scrapped all prior css and started from scratch */
-/* sent through CSS validator and fixed all errors, should be clean and well-structured now */
-/* importing fonts for steampunk aesthetic (Cinzel = headings, Playfair = body) */
+/* Scrapped all prior css and started from scratch */
+/* Sent through CSS validator and fixed all errors, should be clean and well-structured now */
+/* Importing fonts for steampunk aesthetic (Cinzel = headings, Playfair = body) */
+/* Moved style.css into css folder for better organization */
+/* renamed stylesheet.html to index.html to be read on github pages */ 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Playfair+Display:wght@400;700&display=swap');
 
 /* Root, going for a steampunk theme */
