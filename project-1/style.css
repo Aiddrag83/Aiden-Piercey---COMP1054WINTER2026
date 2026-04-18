@@ -4,6 +4,8 @@
 /* Moved style.css into css folder for better organization */
 /* renamed stylesheet.html to index.html to be read on github pages */ 
 /* Has been sent through validator once more (9:50)and fixed all errors */
+/* Previous commit actually made my sheet (Refactor body and section styles for improved layout and centering) broke the ENTIRE layout so I reverted some partss and fixed others)
+
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Playfair+Display:wght@400;700&display=swap');
 
 /* Root, going for a steampunk theme */
@@ -39,9 +41,6 @@ body {
     linear-gradient(#1a120b, #0f0a05);
   color: var(--text);
   line-height: 1.6;
-
-  display: flex;
-  justify-content: center; /* centers page horizontally */
 }
 
 /* Typography */
@@ -66,6 +65,7 @@ h2 {
 
 p {
   color: var(--muted);
+  max-width: 70ch;
 }
 
 /* Header */
@@ -111,7 +111,7 @@ header::after {
   to { opacity: 0.4; }
 }
 
-/* Brass Panels (with rivets fixed via gradients) */
+/* Brass Panels */
 
 section {
   position: relative;
@@ -128,9 +128,14 @@ section {
   box-shadow:
     inset 0 0 10px rgba(0,0,0,0.8),
     0 5px 15px rgba(0,0,0,0.6);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-/* Steam effect (kept as single pseudo-element) */
+/* Steam effect */
 
 section::after {
   content: "";
@@ -162,13 +167,7 @@ section + section::before {
   background: linear-gradient(var(--brass), var(--brass-dark));
   box-shadow: 0 0 5px black;
 }
-/* Centering content inside sections */
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
+
 /* Aether energy lines */
 
 main::before {
@@ -194,23 +193,12 @@ main::before {
 /* Layout */
 
 main {
-  width: min(1200px, 100%);
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding: 2rem 1.5rem;
-}
-
-@media (min-width: 768px) {
-  header {
-    grid-column: span 2;
-  }
-}
-
-@media (min-width: 1200px) {
-  header {
-    grid-column: span 3;
-  }
 }
 
 /* Navigation */
