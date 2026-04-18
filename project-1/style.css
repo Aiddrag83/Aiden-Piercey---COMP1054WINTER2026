@@ -267,3 +267,31 @@ h2::after {
   width: 100%;
   max-width: 1200px;
 }
+
+/* Found this online, said it would help with my constant layout issues, and it did! (it.... was a simple fix.....)*/
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Force proper page structure alignment */
+body {
+  display: block;
+}
+
+/* Center everything safely */
+main {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
+/* Prevent sections stretching weirdly */
+section {
+  width: 100%;
+}
+
+/* Ensure images / content don’t break layout */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
