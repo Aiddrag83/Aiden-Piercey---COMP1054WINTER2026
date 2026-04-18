@@ -3,6 +3,7 @@
 /* Importing fonts for steampunk aesthetic (Cinzel = headings, Playfair = body) */
 /* Moved style.css into css folder for better organization */
 /* renamed stylesheet.html to index.html to be read on github pages */ 
+/* Has been sent through validator once more (9:50)and fixed all errors */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Playfair+Display:wght@400;700&display=swap');
 
 /* Root, going for a steampunk theme */
@@ -73,7 +74,7 @@ header {
   position: relative;
 }
 
-/* glowing energy core (aether reactor look) */
+/* glowing energy core */
 header::before {
   content: "";
   position: absolute;
@@ -97,25 +98,26 @@ header::after {
   animation: spin 20s linear infinite;
 }
 
-/* gear spin animation */
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
 
-/* subtle pulsing glow */
 @keyframes pulse {
   from { opacity: 0.2; }
   to { opacity: 0.4; }
 }
 
-/* Brass Panels */
+/* Brass Panels (with rivets fixed via gradients) */
 
 section {
   position: relative;
   padding: 2rem;
   border-radius: var(--radius);
 
-  background: linear-gradient(145deg, #3a2a1a, #2b1d12);
+  background:
+    radial-gradient(circle 6px at 10px 10px, var(--brass) 98%, transparent),
+    radial-gradient(circle 6px at calc(100% - 10px) calc(100% - 10px), var(--brass) 98%, transparent),
+    linear-gradient(145deg, #3a2a1a, #2b1d12);
 
   border: 2px solid var(--brass-dark);
 
@@ -124,9 +126,8 @@ section {
     0 5px 15px rgba(0,0,0,0.6);
 }
 
-/* Rivets */
+/* Steam effect (kept as single pseudo-element) */
 
-section::before,
 section::after {
   content: "";
   position: absolute;
@@ -134,23 +135,9 @@ section::after {
   height: 12px;
   background: var(--brass);
   border-radius: 50%;
-  box-shadow: inset 0 2px 2px rgba(255,255,255,0.3);
-}
-
-section::before {
-  top: 10px;
-  left: 10px;
-}
-
-section::after {
+  animation: steam 6s infinite ease-in-out;
   bottom: 10px;
   right: 10px;
-}
-
-/* Steam effect (subtle mechanical atmosphere) */
-
-section::after {
-  animation: steam 6s infinite ease-in-out;
 }
 
 @keyframes steam {
@@ -172,7 +159,7 @@ section + section::before {
   box-shadow: 0 0 5px black;
 }
 
-/* Aether energy lines across screen */
+/* Aether energy lines */
 
 main::before {
   content: "";
@@ -194,29 +181,24 @@ main::before {
   to { background-position: 200px 0; }
 }
 
-/* Layout Itself */
+/* Layout */
 
 main {
   display: grid;
   gap: 2rem;
   padding: 2rem;
+
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 @media (min-width: 768px) {
-  main {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   header {
     grid-column: span 2;
   }
 }
 
 @media (min-width: 1200px) {
-  main {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   header {
     grid-column: span 3;
   }
@@ -240,7 +222,6 @@ nav a {
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
-
   box-shadow: 0 3px 0 #5c4520;
   transition: 0.2s;
 }
@@ -264,7 +245,7 @@ nav a:hover {
   text-align: center;
 }
 
-/* Buttons */
+/* Links */
 
 a {
   color: var(--aether);
@@ -281,4 +262,12 @@ h2::after {
   content: " ⚙";
   color: var(--brass);
   margin-left: 0.5rem;
+}
+
+/* Container fix */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
