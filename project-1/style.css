@@ -31,16 +31,17 @@
 }
 
 body { 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin: 0;
+  min-height: 100vh;
   font-family: 'Playfair Display', serif;
   background: 
     radial-gradient(circle at top, rgba(127,223,255,0.08), transparent),
     linear-gradient(#1a120b, #0f0a05);
   color: var(--text);
   line-height: 1.6;
+
+  display: flex;
+  justify-content: center; /* centers page horizontally */
 }
 
 /* Typography */
@@ -161,7 +162,13 @@ section + section::before {
   background: linear-gradient(var(--brass), var(--brass-dark));
   box-shadow: 0 0 5px black;
 }
-
+/* Centering content inside sections */
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 /* Aether energy lines */
 
 main::before {
@@ -187,9 +194,11 @@ main::before {
 /* Layout */
 
 main {
+  width: min(1200px, 100%);
   display: flex;
-  justify-content: center;
-  padding: 2rem;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1.5rem;
 }
 
 @media (min-width: 768px) {
@@ -267,7 +276,6 @@ h2::after {
 /* Container fix */
 
 .container {
-  width: min(1200px, 100%);
-  margin: 0 auto;
-  padding: 0 1.5rem;
+  width: 100%;
+  max-width: 1200px;
 }
