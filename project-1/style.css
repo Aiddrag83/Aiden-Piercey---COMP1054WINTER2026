@@ -1,15 +1,17 @@
-/* Scrapped all prior css and started from scratch */
-/* Sent through CSS validator and fixed all errors, should be clean and well-structured now */
-/* Importing fonts for steampunk aesthetic (Cinzel = headings, Playfair = body) */
-/* Moved style.css into css folder for better organization */
+/* Scrapped all prior css and started from scratch */ /* Sent through CSS validator and fixed all errors, should be clean and well-structured now */ 
+/* Importing fonts for steampunk aesthetic (Cinzel = headings, Playfair = body) */ 
+/* Moved style.css into css folder for better organization */ 
 /* renamed stylesheet.html to index.html to be read on github pages */ 
-/* Has been sent through validator once more (9:50)and fixed all errors */
-/* Previous commit actually made my sheet (Refactor body and section styles for improved layout and centering) broke the ENTIRE layout so I reverted some partss and fixed others)
-
+/* Has been sent through validator once more (9:50)and fixed all errors */ 
+/* Previous commit actually made my sheet (Refactor body and section styles for improved layout and centering) broke the ENTIRE layout so I reverted some partss and fixed others)|
+/* Added a new section to the header with a spinning gear and a glowing core for more steampunk vibes */
+/* Fixed Aether background animation since the big star fix broke it */
+/* Fixed the GitHub star buttons since last commit they were huge */
+/*better organization of media query and fixed some spacing issues for desktop */
+/* Should be fully responsive and look good on all screen sizes now, with a clean centered layout on desktop and a more compact layout on mobile */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Playfair+Display:wght@400;700&display=swap');
 
-/* Root, going for a steampunk theme */
-
+/* Root theme */
 :root {
   --brass: #c9a44c;
   --brass-dark: #8a6a2f;
@@ -25,11 +27,15 @@
 }
 
 /* Base */
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 body { 
@@ -41,10 +47,41 @@ body {
     linear-gradient(#1a120b, #0f0a05);
   color: var(--text);
   line-height: 1.6;
+
+  position: relative;
+  z-index: 0;
+}
+
+/* Moving Aether Background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 50px,
+      rgba(127,223,255,0.06) 52px
+    );
+
+  animation: flow 12s linear infinite;
+}
+
+/* Ensure all content sits above background */
+header,
+main,
+section,
+footer,
+.star {
+  position: relative;
+  z-index: 1;
 }
 
 /* Typography */
-
 h1, h2, h3 {
   font-family: 'Cinzel', serif;
   font-weight: bold;
@@ -63,13 +100,18 @@ h2 {
   color: var(--aether);
 }
 
+h2::after {
+  content: " ⚙";
+  color: var(--brass);
+  margin-left: 0.5rem;
+}
+
 p {
   color: var(--muted);
   max-width: 70ch;
 }
 
 /* Header */
-
 header {
   display: grid;
   place-items: center;
@@ -84,7 +126,7 @@ header {
   backdrop-filter: blur(6px);
 }
 
-/* glowing energy core */
+/* glowing core */
 header::before {
   content: "";
   position: absolute;
@@ -97,7 +139,7 @@ header::before {
   animation: pulse 6s infinite alternate;
 }
 
-/* rotating gear animation */
+/* spinning gear */
 header::after {
   content: "⚙";
   position: absolute;
@@ -108,17 +150,18 @@ header::after {
   animation: spin 20s linear infinite;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
+/* Layout */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: min(1200px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1.5rem;
 }
 
-@keyframes pulse {
-  from { opacity: 0.2; }
-  to { opacity: 0.4; }
-}
-
-/* Brass Panels */
-
+/* Sections */
 section {
   position: relative;
   padding: 2rem;
@@ -139,10 +182,11 @@ section {
   flex-direction: column;
   align-items: center;
   text-align: center;
+
+  width: 100%;
 }
 
-/* Steam effect */
-
+/* steam particle */
 section::after {
   content: "";
   position: absolute;
@@ -155,60 +199,7 @@ section::after {
   right: 10px;
 }
 
-@keyframes steam {
-  0% { transform: translateY(0) scale(1); opacity: 0.3; }
-  50% { transform: translateY(-20px) scale(1.2); opacity: 0.1; }
-  100% { transform: translateY(0) scale(1); opacity: 0.3; }
-}
-
-/* Pipes connecting sections */
-
-section + section::before {
-  content: "";
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  width: 4px;
-  height: 40px;
-  background: linear-gradient(var(--brass), var(--brass-dark));
-  box-shadow: 0 0 5px black;
-}
-
-/* Aether energy lines */
-
-main::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 50px,
-      rgba(127,223,255,0.08) 52px
-    );
-  animation: flow 10s linear infinite;
-}
-
-@keyframes flow {
-  from { background-position: 0 0; }
-  to { background-position: 200px 0; }
-}
-
-/* Layout */
-
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 2rem 1.5rem;
-}
-
-/* Navigation */
-
+/* Navigation buttons */
 nav ul {
   display: flex;
   flex-wrap: wrap;
@@ -234,8 +225,7 @@ nav a:hover {
   box-shadow: 0 5px 0 #5c4520;
 }
 
-/* Feature Grid */
-
+/* Features */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -247,56 +237,19 @@ nav a:hover {
 .features li {
   padding: 1.2rem;
   border-radius: var(--radius);
-
   background: linear-gradient(145deg, var(--brass), var(--brass-dark));
   color: #2b1d12;
-
-  box-shadow:
-    0 4px 0 #5c4520,
-    0 8px 20px rgba(0,0,0,0.5);
-
+  box-shadow: 0 4px 0 #5c4520, 0 8px 20px rgba(0,0,0,0.5);
   text-align: center;
   transition: 0.2s ease;
   position: relative;
 }
 
-/* hover = mechanical press */
 .features li:hover {
   transform: translateY(-4px);
-  box-shadow:
-    0 6px 0 #5c4520,
-    0 12px 25px rgba(0,0,0,0.6);
-}
-
-.features a {
-  color: #2b1d12;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-/* rivet details */
-.features li::before,
-.features li::after {
-  content: "";
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: #2b1d12;
-  border-radius: 50%;
-}
-
-.features li::before {
-  top: 8px;
-  left: 8px;
-}
-
-.features li::after {
-  bottom: 8px;
-  right: 8px;
 }
 
 /* Links */
-
 a {
   color: var(--aether);
   transition: 0.2s;
@@ -306,50 +259,7 @@ a:hover {
   text-shadow: 0 0 8px var(--aether);
 }
 
-/* Extra Gear Decor */
-
-h2::after {
-  content: " ⚙";
-  color: var(--brass);
-  margin-left: 0.5rem;
-}
-
-/* Container fix */
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-}
-
-/* Found this online, said it would help with my constant layout issues, and it did! (it.... was a simple fix.....)*/
-html, body {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-/* Force proper page structure alignment */
-body {
-  display: block;
-}
-
-/* Center everything safely */
-main {
-  width: min(1200px, 100%);
-  margin: 0 auto;
-}
-
-/* Prevent sections stretching weirdly */
-section {
-  width: 100%;
-}
-
-/* Ensure images / content don’t break layout */
-img, video {
-  max-width: 100%;
-  height: auto;
-}
-/* Steampunk star button (replacing giant background star) */
-
+/* Star button */
 .star {
   position: fixed;
   bottom: 20px;
@@ -364,27 +274,168 @@ img, video {
   background: linear-gradient(145deg, var(--brass), var(--brass-dark));
   color: #2b1d12;
 
-  font-size: clamp(1.5rem, 2vw, 2rem);
   border-radius: 50%;
-
-  box-shadow:
-    0 4px 0 #5c4520,
-    0 8px 20px rgba(0,0,0,0.6);
-
+  box-shadow: 0 4px 0 #5c4520, 0 8px 20px rgba(0,0,0,0.6);
   cursor: pointer;
   z-index: 999;
+
   transition: 0.2s;
 }
 
-/* gear icon inside */
 .star::before {
   content: "⚙";
 }
 
-/* hover press effect */
 .star:hover {
   transform: translateY(-3px);
-  box-shadow:
-    0 6px 0 #5c4520,
-    0 12px 25px rgba(0,0,0,0.7);
+  box-shadow: 0 6px 0 #5c4520, 0 12px 25px rgba(0,0,0,0.7);
+}
+
+/* Footer */
+footer {
+  max-width: 1200px;
+  margin: 3rem auto 0;
+  border-radius: var(--radius);
+
+  background:
+    radial-gradient(circle 6px at 10px 10px, var(--brass) 98%, transparent),
+    radial-gradient(circle 6px at calc(100% - 10px) calc(100% - 10px), var(--brass) 98%, transparent),
+    linear-gradient(145deg, #3a2a1a, #2b1d12);
+
+  border: 2px solid var(--brass-dark);
+}
+
+/* Animations */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  from { opacity: 0.2; }
+  to { opacity: 0.4; }
+}
+
+@keyframes steam {
+  0% { transform: translateY(0) scale(1); opacity: 0.3; }
+  50% { transform: translateY(-20px) scale(1.2); opacity: 0.1; }
+  100% { transform: translateY(0) scale(1); opacity: 0.3; }
+}
+
+@keyframes flow {
+  from { background-position: 0 0; }
+  to { background-position: 200px 0; }
+}
+
+/* Desktop layout */
+/* Centered */
+@media (min-width: 900px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 🔥 true centering */
+  }
+
+  /* Make all panels center and consistent */
+  main > section,
+  .container,
+  .profile,
+  .features,
+  footer {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  /* Spacing improvement for desktop */
+  section {
+    padding: 2.5rem;
+  }
+}
+
+  .container,
+  section:first-of-type {
+    grid-column: 1 / span 2;
+  }
+
+  .profile {
+    grid-column: 2;
+  }
+
+  .features,
+  footer {
+    grid-column: 3;
+  }
+}
+/* Fixes the GitHub Star Buttons */
+.star {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  width: 64px;
+  height: 64px;
+
+  display: grid;
+  place-items: center;
+
+  background: linear-gradient(145deg, var(--brass), var(--brass-dark));
+  color: #2b1d12;
+
+  border-radius: 50%;
+  box-shadow: 0 4px 0 #5c4520, 0 8px 20px rgba(0,0,0,0.6);
+
+  cursor: pointer;
+  z-index: 999;
+
+  font-size: 1.4rem;
+  line-height: 1;
+  text-decoration: none;
+  padding: 0;
+
+  transition: 0.2s;
+}
+
+.star::before {
+  content: "⚙";
+}
+
+.star:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 0 #5c4520, 0 12px 25px rgba(0,0,0,0.7);
+}
+
+
+/* Fixes the GitHub Star Button x2 */
+a[href*="github"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+
+  padding: 0.4rem 0.8rem;
+
+  background: linear-gradient(145deg, var(--brass), var(--brass-dark));
+  color: #2b1d12;
+
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+
+  box-shadow: 0 3px 0 #5c4520, 0 6px 12px rgba(0,0,0,0.5);
+
+  transition: 0.2s;
+
+  /* Fixes the GitHub Star Buttons x3 */
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+a[href*="github"]::before {
+  content: "★";
+  font-size: 0.9rem;
+}
+
+a[href*="github"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #5c4520, 0 10px 18px rgba(0,0,0,0.6);
 }
