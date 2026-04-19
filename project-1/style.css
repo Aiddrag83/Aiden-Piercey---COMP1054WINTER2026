@@ -295,3 +295,11 @@ img, video {
   max-width: 100%;
   height: auto;
 }
+/* was not a fan of the star so I removed it*/
+header * {
+  max-width: 100%;
+}
+
+.star {
+  display: none !important;
+}
