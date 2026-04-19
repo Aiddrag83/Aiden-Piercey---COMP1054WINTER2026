@@ -438,3 +438,6 @@ a[href*="github"]:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 0 #5c4520, 0 10px 18px rgba(0,0,0,0.6);
 }
+
+/* The github star buttons are inspired by Zech Ferguson. His page is really cool.. (Though we are in the same class I wanna still link his project)
+https://zechsvariety.github.io/CSS-Interface-Design/project-1/ */
